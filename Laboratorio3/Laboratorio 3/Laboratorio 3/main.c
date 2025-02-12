@@ -1,11 +1,11 @@
 //********************************************************************************
 /* Universidad del Valle de Guatemala
  * IE3054: Electronica digital 2
- * Autor: Alejandra Marcos
+ * Autor: Alejandra Marcos y Luis Furlan
  * Laboratorio 3.c
  *
  * Created: 6/02/2025 16:10:38
- * Author : jaidy
+ * Author : jaidy y luis
  */ 
  //********************************************************************************
 
