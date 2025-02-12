@@ -5,7 +5,7 @@
  * Laboratorio 3.1.c
  *
  * Created: 6/02/2025 16:50:16
- * Author : jaidy
+ * Author : jaidy y luis
  */ 
 
 //LIBRERIAS
