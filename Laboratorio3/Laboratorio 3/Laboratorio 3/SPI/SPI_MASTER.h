@@ -2,7 +2,7 @@
  * SPI_MASTER.h
  *
  * Created: 6/02/2025 16:14:16
- *  Author: jaidy
+ *  Author: jaidy y luis
  */ 
 
 
