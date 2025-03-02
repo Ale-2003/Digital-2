@@ -1,0 +1,436 @@
+
+Proyecto1.2.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000002  00800100  00000258  000002ec  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000258  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000006  00800102  00800102  000002ee  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  000002ee  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000320  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000088  00000000  00000000  00000360  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000b77  00000000  00000000  000003e8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000007d9  00000000  00000000  00000f5f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   0000056b  00000000  00000000  00001738  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000104  00000000  00000000  00001ca4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    0000048c  00000000  00000000  00001da8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000002bf  00000000  00000000  00002234  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000070  00000000  00000000  000024f3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   8:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  10:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  14:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  18:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  1c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  20:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  24:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  28:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  2c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  30:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  34:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  38:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  3c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  40:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  44:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  48:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  4c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  50:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  54:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  58:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  5c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  60:	0c 94 f2 00 	jmp	0x1e4	; 0x1e4 <__vector_24>
+  64:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	e8 e5       	ldi	r30, 0x58	; 88
+  7c:	f2 e0       	ldi	r31, 0x02	; 2
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	a2 30       	cpi	r26, 0x02	; 2
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+
+0000008a <__do_clear_bss>:
+  8a:	21 e0       	ldi	r18, 0x01	; 1
+  8c:	a2 e0       	ldi	r26, 0x02	; 2
+  8e:	b1 e0       	ldi	r27, 0x01	; 1
+  90:	01 c0       	rjmp	.+2      	; 0x94 <.do_clear_bss_start>
+
+00000092 <.do_clear_bss_loop>:
+  92:	1d 92       	st	X+, r1
+
+00000094 <.do_clear_bss_start>:
+  94:	a8 30       	cpi	r26, 0x08	; 8
+  96:	b2 07       	cpc	r27, r18
+  98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
+  9a:	0e 94 ea 00 	call	0x1d4	; 0x1d4 <main>
+  9e:	0c 94 2a 01 	jmp	0x254	; 0x254 <_exit>
+
+000000a2 <__bad_interrupt>:
+  a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a6 <Request>:
+ *  Author: jaidy
+ */ 
+#include "DHT11.h"
+
+void Request(){
+	DDRC |= (1<<DHT11_PIN);  // Configura PC0 como salida
+  a6:	87 b1       	in	r24, 0x07	; 7
+  a8:	81 60       	ori	r24, 0x01	; 1
+  aa:	87 b9       	out	0x07, r24	; 7
+	PORTC &= ~(1<<DHT11_PIN); // Envía pulso bajo (inicio de comunicación)
+  ac:	88 b1       	in	r24, 0x08	; 8
+  ae:	8e 7f       	andi	r24, 0xFE	; 254
+  b0:	88 b9       	out	0x08, r24	; 8
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  b2:	2f ef       	ldi	r18, 0xFF	; 255
+  b4:	80 ee       	ldi	r24, 0xE0	; 224
+  b6:	90 e0       	ldi	r25, 0x00	; 0
+  b8:	21 50       	subi	r18, 0x01	; 1
+  ba:	80 40       	sbci	r24, 0x00	; 0
+  bc:	90 40       	sbci	r25, 0x00	; 0
+  be:	e1 f7       	brne	.-8      	; 0xb8 <Request+0x12>
+  c0:	00 c0       	rjmp	.+0      	; 0xc2 <Request+0x1c>
+  c2:	00 00       	nop
+	_delay_ms(18);            // Espera al menos 18 ms
+	PORTC |= (1<<DHT11_PIN);  // Lleva el pin a alto
+  c4:	88 b1       	in	r24, 0x08	; 8
+  c6:	81 60       	ori	r24, 0x01	; 1
+  c8:	88 b9       	out	0x08, r24	; 8
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  ca:	2a e6       	ldi	r18, 0x6A	; 106
+  cc:	2a 95       	dec	r18
+  ce:	f1 f7       	brne	.-4      	; 0xcc <Request+0x26>
+  d0:	00 c0       	rjmp	.+0      	; 0xd2 <Request+0x2c>
+  d2:	08 95       	ret
+
+000000d4 <Response>:
+	_delay_us(20);
+}
+
+uint8_t Response(){
+	DDRC &= ~(1<<DHT11_PIN);  // Configura PD2 como entrada
+  d4:	87 b1       	in	r24, 0x07	; 7
+  d6:	8e 7f       	andi	r24, 0xFE	; 254
+  d8:	87 b9       	out	0x07, r24	; 7
+  da:	8a e6       	ldi	r24, 0x6A	; 106
+  dc:	8a 95       	dec	r24
+  de:	f1 f7       	brne	.-4      	; 0xdc <Response+0x8>
+  e0:	00 c0       	rjmp	.+0      	; 0xe2 <Response+0xe>
+	_delay_us(20);
+	
+	if (!(PINC & (1<<DHT11_PIN))) {
+  e2:	30 99       	sbic	0x06, 0	; 6
+  e4:	13 c0       	rjmp	.+38     	; 0x10c <Response+0x38>
+  e6:	8f e3       	ldi	r24, 0x3F	; 63
+  e8:	91 e0       	ldi	r25, 0x01	; 1
+  ea:	01 97       	sbiw	r24, 0x01	; 1
+  ec:	f1 f7       	brne	.-4      	; 0xea <Response+0x16>
+  ee:	00 c0       	rjmp	.+0      	; 0xf0 <Response+0x1c>
+  f0:	00 00       	nop
+		_delay_us(80);
+		if (PINC & (1<<DHT11_PIN)) {
+  f2:	96 b1       	in	r25, 0x06	; 6
+  f4:	89 2f       	mov	r24, r25
+  f6:	81 70       	andi	r24, 0x01	; 1
+  f8:	90 ff       	sbrs	r25, 0
+  fa:	09 c0       	rjmp	.+18     	; 0x10e <Response+0x3a>
+  fc:	8f e3       	ldi	r24, 0x3F	; 63
+  fe:	91 e0       	ldi	r25, 0x01	; 1
+ 100:	01 97       	sbiw	r24, 0x01	; 1
+ 102:	f1 f7       	brne	.-4      	; 0x100 <Response+0x2c>
+ 104:	00 c0       	rjmp	.+0      	; 0x106 <Response+0x32>
+ 106:	00 00       	nop
+			_delay_us(80);
+			return 1;  // El sensor ha respondido correctamente
+ 108:	81 e0       	ldi	r24, 0x01	; 1
+ 10a:	08 95       	ret
+		}
+	}
+	return 0;
+ 10c:	80 e0       	ldi	r24, 0x00	; 0
+}
+ 10e:	08 95       	ret
+
+00000110 <Read_Data>:
+
+uint8_t Read_Data(){
+	uint8_t data = 0;
+	
+	for (int i = 0; i < 8; i++) {
+ 110:	20 e0       	ldi	r18, 0x00	; 0
+ 112:	30 e0       	ldi	r19, 0x00	; 0
+	}
+	return 0;
+}
+
+uint8_t Read_Data(){
+	uint8_t data = 0;
+ 114:	80 e0       	ldi	r24, 0x00	; 0
+	
+	for (int i = 0; i < 8; i++) {
+ 116:	12 c0       	rjmp	.+36     	; 0x13c <Read_Data+0x2c>
+		while (!(PINC & (1<<DHT11_PIN)));  // Espera el inicio del bit
+ 118:	30 9b       	sbis	0x06, 0	; 6
+ 11a:	fe cf       	rjmp	.-4      	; 0x118 <Read_Data+0x8>
+ 11c:	95 ed       	ldi	r25, 0xD5	; 213
+ 11e:	9a 95       	dec	r25
+ 120:	f1 f7       	brne	.-4      	; 0x11e <Read_Data+0xe>
+ 122:	00 00       	nop
+		_delay_us(40);
+		
+		if (PINC & (1<<DHT11_PIN))  // Si el pulso es largo, es un '1'
+ 124:	30 9b       	sbis	0x06, 0	; 6
+ 126:	05 c0       	rjmp	.+10     	; 0x132 <Read_Data+0x22>
+		data = (data << 1) | 1;
+ 128:	90 e0       	ldi	r25, 0x00	; 0
+ 12a:	88 0f       	add	r24, r24
+ 12c:	99 1f       	adc	r25, r25
+ 12e:	81 60       	ori	r24, 0x01	; 1
+ 130:	01 c0       	rjmp	.+2      	; 0x134 <Read_Data+0x24>
+		else
+		data = (data << 1);
+ 132:	88 0f       	add	r24, r24
+		
+		while (PINC & (1<<DHT11_PIN));  // Espera que termine el bit
+ 134:	30 99       	sbic	0x06, 0	; 6
+ 136:	fe cf       	rjmp	.-4      	; 0x134 <Read_Data+0x24>
+}
+
+uint8_t Read_Data(){
+	uint8_t data = 0;
+	
+	for (int i = 0; i < 8; i++) {
+ 138:	2f 5f       	subi	r18, 0xFF	; 255
+ 13a:	3f 4f       	sbci	r19, 0xFF	; 255
+ 13c:	28 30       	cpi	r18, 0x08	; 8
+ 13e:	31 05       	cpc	r19, r1
+ 140:	5c f3       	brlt	.-42     	; 0x118 <Read_Data+0x8>
+		
+		while (PINC & (1<<DHT11_PIN));  // Espera que termine el bit
+	}
+	
+	return data;
+}
+ 142:	08 95       	ret
+
+00000144 <Read_TempInt>:
+
+uint8_t Read_TempInt(){
+	DDRB |= (1<<PB0);  // Configura un LED en PB0 para indicar funcionamiento
+ 144:	84 b1       	in	r24, 0x04	; 4
+ 146:	81 60       	ori	r24, 0x01	; 1
+ 148:	84 b9       	out	0x04, r24	; 4
+	PORTB &= ~(1<<PB0);
+ 14a:	85 b1       	in	r24, 0x05	; 5
+ 14c:	8e 7f       	andi	r24, 0xFE	; 254
+ 14e:	85 b9       	out	0x05, r24	; 5
+	
+	Request();
+ 150:	0e 94 53 00 	call	0xa6	; 0xa6 <Request>
+	if (Response()) {
+ 154:	0e 94 6a 00 	call	0xd4	; 0xd4 <Response>
+ 158:	88 23       	and	r24, r24
+ 15a:	71 f1       	breq	.+92     	; 0x1b8 <Read_TempInt+0x74>
+		hum_int = Read_Data();
+ 15c:	0e 94 88 00 	call	0x110	; 0x110 <Read_Data>
+ 160:	80 93 02 01 	sts	0x0102, r24	; 0x800102 <__data_end>
+		hum_dec = Read_Data();
+ 164:	0e 94 88 00 	call	0x110	; 0x110 <Read_Data>
+ 168:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <hum_dec>
+		temp_int = Read_Data();
+ 16c:	0e 94 88 00 	call	0x110	; 0x110 <Read_Data>
+ 170:	80 93 03 01 	sts	0x0103, r24	; 0x800103 <temp_int>
+		temp_dec = Read_Data();
+ 174:	0e 94 88 00 	call	0x110	; 0x110 <Read_Data>
+ 178:	80 93 06 01 	sts	0x0106, r24	; 0x800106 <temp_dec>
+		checksum = Read_Data();
+ 17c:	0e 94 88 00 	call	0x110	; 0x110 <Read_Data>
+ 180:	80 93 05 01 	sts	0x0105, r24	; 0x800105 <checksum>
+		
+		if ((hum_int + hum_dec + temp_int + temp_dec) == checksum) {
+ 184:	90 91 02 01 	lds	r25, 0x0102	; 0x800102 <__data_end>
+ 188:	20 91 04 01 	lds	r18, 0x0104	; 0x800104 <hum_dec>
+ 18c:	30 e0       	ldi	r19, 0x00	; 0
+ 18e:	29 0f       	add	r18, r25
+ 190:	31 1d       	adc	r19, r1
+ 192:	90 91 03 01 	lds	r25, 0x0103	; 0x800103 <temp_int>
+ 196:	29 0f       	add	r18, r25
+ 198:	31 1d       	adc	r19, r1
+ 19a:	90 91 06 01 	lds	r25, 0x0106	; 0x800106 <temp_dec>
+ 19e:	29 0f       	add	r18, r25
+ 1a0:	31 1d       	adc	r19, r1
+ 1a2:	90 e0       	ldi	r25, 0x00	; 0
+ 1a4:	28 17       	cp	r18, r24
+ 1a6:	39 07       	cpc	r19, r25
+ 1a8:	21 f4       	brne	.+8      	; 0x1b2 <Read_TempInt+0x6e>
+			// Enviar datos a la UART (opcional)
+			PORTB |= (1<<PORTB0);  // Enciende LED si la lectura es correcta
+ 1aa:	85 b1       	in	r24, 0x05	; 5
+ 1ac:	81 60       	ori	r24, 0x01	; 1
+ 1ae:	85 b9       	out	0x05, r24	; 5
+ 1b0:	03 c0       	rjmp	.+6      	; 0x1b8 <Read_TempInt+0x74>
+			//_delay_ms(1000);	
+		}else{
+			PORTB &= ~(1<<PB0);
+ 1b2:	85 b1       	in	r24, 0x05	; 5
+ 1b4:	8e 7f       	andi	r24, 0xFE	; 254
+ 1b6:	85 b9       	out	0x05, r24	; 5
+		}
+	}
+	return temp_int;
+ 1b8:	80 91 03 01 	lds	r24, 0x0103	; 0x800103 <temp_int>
+ 1bc:	08 95       	ret
+
+000001be <I2C_esclavo_init>:
+ *  Author: jaidy
+ */ 
+#include "I2C_SLAVE.h"
+
+void I2C_esclavo_init() {
+	TWAR = SLA_ESCLAVO << 1; // Configura la dirección del esclavo
+ 1be:	80 e2       	ldi	r24, 0x20	; 32
+ 1c0:	80 93 ba 00 	sts	0x00BA, r24	; 0x8000ba <__TEXT_REGION_LENGTH__+0x7f80ba>
+	TWCR = (1 << TWEA) | (1 << TWEN) | (1 << TWINT) | (1 << TWIE); // Habilita I2C y la interrupción
+ 1c4:	85 ec       	ldi	r24, 0xC5	; 197
+ 1c6:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7f80bc>
+ 1ca:	08 95       	ret
+
+000001cc <I2C_reset>:
+	//PORTC |= (1 << PC4) | (1 << PC5); // Habilita pull-ups internos en SDA y SCL
+}
+
+void I2C_reset(){
+	TWCR = (1 << TWEA) | (1 << TWEN) | (1 << TWINT) | (1 << TWIE); // Reinicia I2C para recibir más datos
+ 1cc:	85 ec       	ldi	r24, 0xC5	; 197
+ 1ce:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7f80bc>
+ 1d2:	08 95       	ret
+
+000001d4 <main>:
+volatile uint8_t dato_recibido;
+volatile uint8_t dato_a_enviar = 0x22;
+
+
+int main(void){
+	I2C_esclavo_init();			// Inicializa el esclavo
+ 1d4:	0e 94 df 00 	call	0x1be	; 0x1be <I2C_esclavo_init>
+	sei();						// Habilita interrupciones globales
+ 1d8:	78 94       	sei
+	while (1){
+		temperatura = Read_TempInt();
+ 1da:	0e 94 a2 00 	call	0x144	; 0x144 <Read_TempInt>
+ 1de:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 1e2:	fb cf       	rjmp	.-10     	; 0x1da <main+0x6>
+
+000001e4 <__vector_24>:
+	}
+}
+
+ISR(TWI_vect) {
+ 1e4:	1f 92       	push	r1
+ 1e6:	0f 92       	push	r0
+ 1e8:	0f b6       	in	r0, 0x3f	; 63
+ 1ea:	0f 92       	push	r0
+ 1ec:	11 24       	eor	r1, r1
+ 1ee:	2f 93       	push	r18
+ 1f0:	3f 93       	push	r19
+ 1f2:	4f 93       	push	r20
+ 1f4:	5f 93       	push	r21
+ 1f6:	6f 93       	push	r22
+ 1f8:	7f 93       	push	r23
+ 1fa:	8f 93       	push	r24
+ 1fc:	9f 93       	push	r25
+ 1fe:	af 93       	push	r26
+ 200:	bf 93       	push	r27
+ 202:	ef 93       	push	r30
+ 204:	ff 93       	push	r31
+	switch (TWSR & 0xF8) {
+ 206:	80 91 b9 00 	lds	r24, 0x00B9	; 0x8000b9 <__TEXT_REGION_LENGTH__+0x7f80b9>
+ 20a:	88 7f       	andi	r24, 0xF8	; 248
+ 20c:	80 38       	cpi	r24, 0x80	; 128
+ 20e:	19 f0       	breq	.+6      	; 0x216 <__vector_24+0x32>
+ 210:	88 3a       	cpi	r24, 0xA8	; 168
+ 212:	49 f0       	breq	.+18     	; 0x226 <__vector_24+0x42>
+ 214:	0c c0       	rjmp	.+24     	; 0x22e <__vector_24+0x4a>
+		case 0x80:				// Dato recibido de maestro
+		dato_recibido = TWDR;	// Guarda el dato recibido
+ 216:	80 91 bb 00 	lds	r24, 0x00BB	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7f80bb>
+ 21a:	80 93 07 01 	sts	0x0107, r24	; 0x800107 <dato_recibido>
+		PORTB = dato_recibido;
+ 21e:	80 91 07 01 	lds	r24, 0x0107	; 0x800107 <dato_recibido>
+ 222:	85 b9       	out	0x05, r24	; 5
+		break;
+ 224:	04 c0       	rjmp	.+8      	; 0x22e <__vector_24+0x4a>
+		case 0xA8:				// Maestro solicita lectura
+		TWDR = temperatura;			// Carga el dato a enviar
+ 226:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 22a:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7f80bb>
+		break;
+	}
+	I2C_reset();				// Reinicia I2C para recibir más datos
+ 22e:	0e 94 e6 00 	call	0x1cc	; 0x1cc <I2C_reset>
+ 232:	ff 91       	pop	r31
+ 234:	ef 91       	pop	r30
+ 236:	bf 91       	pop	r27
+ 238:	af 91       	pop	r26
+ 23a:	9f 91       	pop	r25
+ 23c:	8f 91       	pop	r24
+ 23e:	7f 91       	pop	r23
+ 240:	6f 91       	pop	r22
+ 242:	5f 91       	pop	r21
+ 244:	4f 91       	pop	r20
+ 246:	3f 91       	pop	r19
+ 248:	2f 91       	pop	r18
+ 24a:	0f 90       	pop	r0
+ 24c:	0f be       	out	0x3f, r0	; 63
+ 24e:	0f 90       	pop	r0
+ 250:	1f 90       	pop	r1
+ 252:	18 95       	reti
+
+00000254 <_exit>:
+ 254:	f8 94       	cli
+
+00000256 <__stop_program>:
+ 256:	ff cf       	rjmp	.-2      	; 0x256 <__stop_program>
