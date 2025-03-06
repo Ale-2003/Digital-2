@@ -1,9 +1,11 @@
-/*
- * Proyecto1.2.c
- *
- * Created: 25/02/2025 21:23:20
- * Author : jaidy
+//********************************************************************************
+/* Universidad del Valle de Guatemala
+ * IE3054: Electronica digital 2
+ * Autor: Alejandra Marcos y Luis Furlan
+ * Proyecto1.c
+ * Author : jaidy y luis
  */ 
+ //********************************************************************************
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
@@ -59,5 +61,5 @@ ISR(TWI_vect) {
 		TWDR = temperatura;			// Carga el dato a enviar
 		break;
 	}
-	I2C_reset();				// Reinicia I2C para recibir m·s datos
+	I2C_reset();				// Reinicia I2C para recibir m√°s datos
 }
