@@ -1,9 +1,11 @@
-/*
- * Proyecto1.1.c
- *
- * Created: 25/02/2025 20:49:31
- * Author : jaidy
+//********************************************************************************
+/* Universidad del Valle de Guatemala
+ * IE3054: Electronica digital 2
+ * Autor: Alejandra Marcos y Luis Furlan
+ * Proyecto1.c
+ * Author : jaidy y luis
  */ 
+ //********************************************************************************
 
 #include <avr/io.h>
 #define F_CPU 16000000UL
@@ -44,7 +46,7 @@ int main(void){
 	while (1) {
 		lcd_print("                ");
 		lcd_set_cursor(1,2);
-		lcd_print("°C");
+		lcd_print("Â°C");
 		lcd_set_cursor(1,9);
 		lcd_print("%");
 		
