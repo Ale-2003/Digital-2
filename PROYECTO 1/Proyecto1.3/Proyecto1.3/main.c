@@ -1,9 +1,11 @@
-/*
- * Proyecto1.3.c
- *
- * Created: 25/02/2025 23:32:39
- * Author : jaidy
+//********************************************************************************
+/* Universidad del Valle de Guatemala
+ * IE3054: Electronica digital 2
+ * Autor: Alejandra Marcos y Luis Furlan
+ * Proyecto1.c
+ * Author : jaidy y luis
  */ 
+ //********************************************************************************
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
@@ -32,11 +34,11 @@ void setupServos() {
 
 void moveServos(int signal) {
 	if (signal < THRESHOLD) {
-		// Ambos servos a 90° (1500us de pulso)
+		// Ambos servos a 90Â° (1500us de pulso)
 		duty_cycle1A(3150);
 		duty_cycle2A(21);
 	} else {
-		// Servo 1 a 0° (1000us de pulso), Servo 2 a 180° (2000us de pulso)
+		// Servo 1 a 0Â° (1000us de pulso), Servo 2 a 180Â° (2000us de pulso)
 		duty_cycle1A(5100);
 		duty_cycle2A(6);
 	}
@@ -68,10 +70,10 @@ int main(void){
 	while (1){
 		dato_a_enviar = ADC_CONVERT(0);
 		/*
-		signal = 10; // Ejemplo de señal, cámbiala según sea necesario
+		signal = 10; // Ejemplo de seÃ±al, cÃ¡mbiala segÃºn sea necesario
 		_delay_ms(1000);
 		moveServos(signal);
-		signal = 30; // Ejemplo de señal, cámbiala según sea necesario
+		signal = 30; // Ejemplo de seÃ±al, cÃ¡mbiala segÃºn sea necesario
 		_delay_ms(1000);
 		moveServos(signal);
 		*/
@@ -89,5 +91,5 @@ ISR(TWI_vect) {
 		TWDR = dato_a_enviar;	// Carga el dato a enviar
 		break;
 	}
-	I2C_reset();				// Reinicia I2C para recibir más datos
+	I2C_reset();				// Reinicia I2C para recibir mÃ¡s datos
 }
