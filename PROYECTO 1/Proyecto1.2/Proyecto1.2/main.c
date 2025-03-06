@@ -20,8 +20,33 @@ volatile uint8_t dato_a_enviar = 0x22;
 int main(void){
 	I2C_esclavo_init();			// Inicializa el esclavo
 	sei();						// Habilita interrupciones globales
+	DDRB |= (1 << PB1)|(1 << PB0);
+	PORTB &= ~((1 << PB1) | (1 << PB0));
 	while (1){
 		temperatura = Read_TempInt();
+		
+		switch (dato_recibido) {
+			case 'Y':
+				PORTB &= ~((1 << PB1) | (1 << PB0));
+			break;
+			
+			case 'Z':
+				PORTB |= (1 << PB1);
+			break;
+			
+			case 'X':
+				if (temperatura > 30){
+					PORTB |= (1 << PB1);
+				}
+				else{
+					PORTB &= ~((1 << PB1) | (1 << PB0));
+				}
+			break;
+			
+			default:
+			// Ignorar cualquier otro valor
+			break;
+		}
 	}
 }
 
@@ -29,7 +54,6 @@ ISR(TWI_vect) {
 	switch (TWSR & 0xF8) {
 		case 0x80:				// Dato recibido de maestro
 		dato_recibido = TWDR;	// Guarda el dato recibido
-		PORTB = dato_recibido;
 		break;
 		case 0xA8:				// Maestro solicita lectura
 		TWDR = temperatura;			// Carga el dato a enviar
